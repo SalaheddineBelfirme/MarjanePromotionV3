@@ -19,6 +19,7 @@ public abstract class Promotion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID uuid;
     private float percentage;
+    private String status;
 
 
 }

@@ -27,6 +27,5 @@ public class Product {
     private ProductPromotion productPromotion;
     @ManyToOne(fetch = FetchType.LAZY)
     private  Category category;
-    @OneToOne(fetch = FetchType.LAZY)
-    private  Achats achats;
+
 }

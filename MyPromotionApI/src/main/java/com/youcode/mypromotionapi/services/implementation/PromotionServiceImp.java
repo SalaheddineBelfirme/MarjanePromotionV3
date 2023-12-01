@@ -36,7 +36,6 @@ public class PromotionServiceImp implements PromotionService<ProductPromotion> {
 
     @Override
     public List<ProductPromotion> readAll() {
-        System.out.println("bingo from the service ofpromtion prodect");
         return repository.findAll();
 
     }
@@ -46,7 +45,7 @@ public class PromotionServiceImp implements PromotionService<ProductPromotion> {
          Optional<ProductPromotion> promotion1=repository.findById(promotion.getUuid());
          if (promotion1.isPresent()){
              ProductPromotion p=promotion1.get();
-             p.setPercentage(promotion.getPercentage());
+             p.setStatus(promotion.getStatus());
              return Optional.of(repository.save(p));
          }
         return Optional.empty();

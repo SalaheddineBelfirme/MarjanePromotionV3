@@ -54,6 +54,12 @@ public class CenterAdministratorController implements EventListenerPromotion {
 
   }
 
+  @PutMapping
+  public ResponseEntity<String>changeStatus(){
+
+        return new ResponseEntity<>("method Mapped",HttpStatus.OK);
+  }
+
     @Override
     public void update() {
         System.out.println("test good from the canter admin ");

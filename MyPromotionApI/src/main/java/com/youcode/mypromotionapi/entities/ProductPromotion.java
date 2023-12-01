@@ -1,6 +1,7 @@
 package com.youcode.mypromotionapi.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -16,8 +17,5 @@ public class ProductPromotion extends Promotion{
     @JsonManagedReference
     @OneToOne
     private Product product;
-    @OneToMany
-    private List<PromotionStatus> status;
-
 
 }
