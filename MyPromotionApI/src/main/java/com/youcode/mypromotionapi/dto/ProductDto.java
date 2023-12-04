@@ -12,6 +12,7 @@ import java.util.UUID;
 @Component
 public class ProductDto {
     private UUID uuid;
+    private String picture;
     private String name;
     private String brand;
     private float price;

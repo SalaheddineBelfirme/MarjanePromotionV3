@@ -1,5 +1,6 @@
 package com.youcode.mypromotionapi.entities;
 
+import com.youcode.mypromotionapi.enums.Promotioneta;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,7 +20,8 @@ public abstract class Promotion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID uuid;
     private float percentage;
-    private String status;
+
+    private Promotioneta status;
 
 
 }

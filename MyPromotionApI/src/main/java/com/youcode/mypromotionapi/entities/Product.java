@@ -19,6 +19,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID uuid;
     private String name;
+    private String picture;
     private String brand;
     private float price;
     @JsonBackReference

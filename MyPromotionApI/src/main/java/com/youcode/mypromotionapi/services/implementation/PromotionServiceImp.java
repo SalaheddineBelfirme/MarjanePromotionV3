@@ -67,6 +67,7 @@ public class PromotionServiceImp implements PromotionService<ProductPromotion> {
         ProductPromotionDto productPromotionDto=new ProductPromotionDto();
         productPromotionDto.setProduct(productPromotion.getProduct());
         productPromotionDto.setPercentage(productPromotion.getPercentage());
+        productPromotionDto.setStatus(productPromotion.getStatus());
         productPromotionDto.setUuid(productPromotion.getUuid());
         return productPromotionDto;
     }

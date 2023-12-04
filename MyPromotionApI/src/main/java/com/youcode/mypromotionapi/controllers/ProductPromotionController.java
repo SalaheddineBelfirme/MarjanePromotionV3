@@ -20,11 +20,10 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/productPromotion")
 public class ProductPromotionController implements EventListenerPromotion {
-
     private final PromotionServiceImp service;
-
     private final  ModelMapperConfig modelMapperConfig;
 
     @Autowired
