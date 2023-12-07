@@ -17,7 +17,7 @@ public class ProductPromotionDto  {
     private UUID uuid;
     private float percentage;
     @ToString.Exclude
-    @JsonBackReference
+//    @JsonBackReference
     private Product product;
     private Promotioneta status;
 

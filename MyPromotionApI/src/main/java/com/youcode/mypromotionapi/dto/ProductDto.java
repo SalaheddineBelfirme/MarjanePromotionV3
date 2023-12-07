@@ -16,7 +16,5 @@ public class ProductDto {
     private String name;
     private String brand;
     private float price;
-    @JsonBackReference
-    private ProductPromotion productPromotion;
 
 }

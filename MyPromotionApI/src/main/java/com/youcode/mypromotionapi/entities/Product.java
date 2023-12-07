@@ -22,10 +22,12 @@ public class Product {
     private String picture;
     private String brand;
     private float price;
+//    @JsonBackReference
+//    @ToString.Exclude
+//    @OneToOne( mappedBy = "product",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private ProductPromotion productPromotion;
+
     @JsonBackReference
-    @ToString.Exclude
-    @OneToOne( mappedBy = "product",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private ProductPromotion productPromotion;
     @ManyToOne(fetch = FetchType.LAZY)
     private  Category category;
 

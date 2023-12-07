@@ -43,6 +43,10 @@ public class ProductPromotionController implements EventListenerPromotion {
         System.out.println("from readPromotion "+uuid);
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long>getCount(){
+        return new ResponseEntity<>(service.count(),HttpStatus.OK);
+    }
     @PostMapping
     public ResponseEntity<?> createPromotion(@RequestBody PromtionReqest promotionReq) {
         ProductPromotion productPromotion= modelMapperConfig.modelMapper().
@@ -54,6 +58,7 @@ public class ProductPromotionController implements EventListenerPromotion {
             promotionManager.subscribe(centerAdministratorController);
             promotionManager.notifyubscribe();
             return new ResponseEntity<>(productPromotionDto,HttpStatus.CREATED);
+
         }
 
         return new ResponseEntity<>("try again",HttpStatus.NOT_FOUND);
@@ -90,4 +95,6 @@ public class ProductPromotionController implements EventListenerPromotion {
     public void update() {
         System.out.println("we have a new promotion");
     }
+
+
 }

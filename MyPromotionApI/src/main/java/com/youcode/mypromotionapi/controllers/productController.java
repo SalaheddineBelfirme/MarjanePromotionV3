@@ -1,5 +1,6 @@
 package com.youcode.mypromotionapi.controllers;
 
+import com.youcode.mypromotionapi.Emails.EmailService;
 import com.youcode.mypromotionapi.config.ModelMapperConfig;
 import com.youcode.mypromotionapi.dto.ProductDto;
 import com.youcode.mypromotionapi.dto.ProductPromotionDto;
@@ -22,24 +23,36 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/product")
+@RequestMapping("/api/v1/product")
 public class productController {
     private final ProductServicesimp service;
     private  final  ModelMapperConfig mapper;
+
+    @Autowired
+    private final EmailService emailService;
+
 
 
     @Autowired
     private  CenterAdministratorController centerAdministratorController;
 
     @Autowired
-    public productController(ProductServicesimp productServices,ModelMapperConfig mapper) {
+    public productController(ProductServicesimp productServices,ModelMapperConfig mapper,EmailService emailSer) {
         this.service = productServices;
         this.mapper=mapper;
+        this.emailService=emailSer;
+    }
+
+    @GetMapping("/count")
+    public  ResponseEntity<Long>getCount(){
+        return new ResponseEntity<>(service.count(),HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductDto>>getall() {
+    public ResponseEntity<List<ProductDto>>readall() {
         List<ProductDto>productDtos= service.readAll().stream().map(product -> mapper.modelMapper().map(product,ProductDto.class)).toList();
         return ResponseEntity.ok(productDtos);}
+
+
 
 }

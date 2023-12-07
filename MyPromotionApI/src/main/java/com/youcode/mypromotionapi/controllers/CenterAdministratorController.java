@@ -1,5 +1,6 @@
 package com.youcode.mypromotionapi.controllers;
 
+import com.youcode.mypromotionapi.Emails.EmailService;
 import com.youcode.mypromotionapi.Observer.EventListenerPromotion;
 import com.youcode.mypromotionapi.Observer.PromotionManager;
 import com.youcode.mypromotionapi.entities.CenterAdministrator;
@@ -16,10 +17,12 @@ import java.util.UUID;
 @RequestMapping("/api/v1/centerAdministrator")
 public class CenterAdministratorController implements EventListenerPromotion {
     private CenterAdministratorServiceImp service;
-
     @Autowired
-    public CenterAdministratorController(CenterAdministratorServiceImp centerAdministratorServiceImp) {
+    private final EmailService emailService;
+    @Autowired
+    public CenterAdministratorController(CenterAdministratorServiceImp centerAdministratorServiceImp ,EmailService emailService1) {
         this.service = centerAdministratorServiceImp;
+        this.emailService=emailService1;
     }
 
   @PostMapping
@@ -62,6 +65,6 @@ public class CenterAdministratorController implements EventListenerPromotion {
 
     @Override
     public void update() {
-        System.out.println("test good from the canter admin ");
+        emailService.sendEmail("mohammed.roumami.idrissi@gmail.com","new promotion","came for see the new promotion");
     }
 }

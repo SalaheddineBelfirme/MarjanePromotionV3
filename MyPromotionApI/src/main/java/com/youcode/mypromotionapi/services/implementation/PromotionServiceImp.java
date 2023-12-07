@@ -7,6 +7,7 @@ import com.youcode.mypromotionapi.entities.Promotion;
 import com.youcode.mypromotionapi.services.PromotionService;
 import com.youcode.mypromotionapi.repositories.PromotionRepository;
 import com.youcode.mypromotionapi.services.IProductPromotion;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -62,7 +63,9 @@ public class PromotionServiceImp implements PromotionService<ProductPromotion> {
            return  false;
        }
     }
-
+    public long count() {
+        return repository.count();
+    }
     public static ProductPromotionDto convertToDTO(ProductPromotion productPromotion){
         ProductPromotionDto productPromotionDto=new ProductPromotionDto();
         productPromotionDto.setProduct(productPromotion.getProduct());

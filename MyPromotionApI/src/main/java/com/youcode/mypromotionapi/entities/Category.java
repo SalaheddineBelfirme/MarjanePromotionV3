@@ -1,5 +1,6 @@
 package com.youcode.mypromotionapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ public class Category {
     private String name;
     @OneToOne(mappedBy = "category")
     private CategoryPromotion categoryPromotion;
+    @JsonManagedReference
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Product> products;
 }

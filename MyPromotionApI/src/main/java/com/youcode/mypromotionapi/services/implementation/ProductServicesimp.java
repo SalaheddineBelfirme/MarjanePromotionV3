@@ -3,6 +3,10 @@ package com.youcode.mypromotionapi.services.implementation;
 import com.youcode.mypromotionapi.entities.Product;
 import com.youcode.mypromotionapi.repositories.ProductRepositories;
 import com.youcode.mypromotionapi.services.PromotionService;
+import liquibase.util.NetUtil;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,7 +33,12 @@ public class ProductServicesimp implements PromotionService<Product> {
 
     @Override
     public List<Product> readAll() {
-        return repositorie.findAll();
+            return repositorie.findAll();
+    }
+
+    public long count() {
+        PageRequest pageRequest = PageRequest.of(1, 2);
+        return repositorie.count();
     }
 
     @Override
